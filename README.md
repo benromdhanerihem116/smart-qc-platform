@@ -49,7 +49,7 @@ graph LR
   DL2 -->|Probabilité & Heatmap| GW
   GW -->|JSON Response| DASH
 
-
+```
 ---
 
 ##  Architecture & Structure des Fichiers
