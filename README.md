@@ -104,7 +104,7 @@ Contrairement aux classificateurs simples, ce projet implémente une logique de 
 * **Comportement :** Si l'image contient un "fruit", un "animal" ou un "véhicule", le système renvoie une erreur `400 BAD REQUEST - OBJECT MISMATCH`.
 * *Exemple :* Une pomme est rejetée immédiatement, évitant un faux positif de type "Turbine Défectueuse".
 
-###  Niveau 2 : L' "Expert" (Defect Detection)
+###  Niveau 2 : L'Expert (Defect Detection)
 * **Modèle :** MobileNetV2 (Fine-Tuned).
 * **Technique :** Nous avons "gelé" (freeze) les couches de convolution de base et ré-entraîné uniquement les couches denses finales (Fully Connected Layers) sur notre dataset spécifique.
 * **Architecture de Tête :**
@@ -127,12 +127,6 @@ Tests réalisés sur un dataset de validation de 500 images industrielles.
 | **Temps d'Inférence** | **~180ms** | Compatible avec une cadence de production élevée. |
 | **Faux Positifs** | **< 1.5%** | Réduit drastiquement grâce au filtre sémantique. |
 
-### Démonstration de Robustesse
-
-|  Pièce Conforme (OK) |  Défaut Détecté (NOK) |  Rejet Intrusion (Security) |
-|:---:|:---:|:---:|
-| ![Piece OK](image_c1bf0a.png) | ![Piece NOK](image_c1b3c4.jpg) | ![Rejet](image_c1bc3e.jpg) |
-| *Confiance : 99.9%* | *Confiance : 98.4% (Fissure)* | *Rejeté : "Pomegranate" (Pomme)* |
 
 ---
 
@@ -146,14 +140,14 @@ cd ai-service-python
 pip install -r requirements.txt
 python app.py
 ```
-#  Server running on port 5000
+####  Server running on port 5000
 
 ### 2. Backend (Java/Spring)
 ```bash
 cd backend-spring
 mvn spring-boot:run
 ```
-#  Tomcat started on port 8080
+####  Tomcat started on port 8080
 
 ### 3. Démarrer l'Interface (React)
 Port `3000`.
@@ -163,7 +157,7 @@ cd frontend-react
 npm install
 npm start
 ```
-#  Client accessible at http://localhost:3000
+####  Client accessible at http://localhost:3000
 
 ---
 
