@@ -27,27 +27,27 @@ Le système repose sur une communication inter-services via API REST.
 
 ```mermaid
 graph LR
-    subgraph CLIENT [Frontend - React.js]
-        UI[Interface Upload]
-        DASH[Dashboard Visualization]
-    end
+  subgraph CLIENT [Frontend - React.js]
+    UI[Interface Upload]
+    DASH[Dashboard Visualization]
+  end
 
-    subgraph ORCHESTRATOR [Backend - Spring Boot]
-        GW[API Gateway]
-        SEC[Validation & Sécurité]
-    end
+  subgraph ORCHESTRATOR [Backend - Spring Boot]
+    GW[API Gateway]
+    SEC[Validation & Sécurité]
+  end
 
-    subgraph AI_CORE [Moteur IA - Python Flask]
-        DL1[ Layer 1: Filtre Sémantique]
-        DL2[ Layer 2: Expert Défauts]
-    end
+  subgraph AI_CORE [Moteur IA - Python Flask]
+    DL1[ Layer 1: Filtre Sémantique]
+    DL2[ Layer 2: Expert Défauts]
+  end
 
-    UI -->|Multipart File| GW
-    GW -->|Requête Synchrone| DL1
-    DL1 -- Refus (Objet Inconnu) --> GW
-    DL1 -- Accepté --> DL2
-    DL2 -->|Probabilité & Heatmap| GW
-    GW -->|JSON Response| DASH
+  UI -->|Multipart File| GW
+  GW -->|Requête Synchrone| DL1
+  DL1 -- Refus (Objet Inconnu) --> GW
+  DL1 -- Accepté --> DL2
+  DL2 -->|Probabilité & Heatmap| GW
+  GW -->|JSON Response| DASH
 
 
 ---
