@@ -79,7 +79,7 @@ SMART-QC-PLATFORM/
 │
 ├── LICENSE                         # Licence MIT
 └── README.md                       # Documentation Technique
-
+```
 ---
 
 ##  Stack Technologique Détaillée
