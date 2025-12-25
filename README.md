@@ -176,8 +176,8 @@ Pour passer d'un POC (Preuve de Concept) à une solution d'usine déployable :
 
 **Rihem Ben Romdhane**
 
-**LinkedIn :** [linkedin.com/in/rihem-ben-romdhane](https://www.linkedin.com/in/rihem-ben-romdhane/)
-**Email :** benromdhanerihem7@gmail.com
+* **LinkedIn :** [linkedin.com/in/rihem-ben-romdhane](https://www.linkedin.com/in/rihem-ben-romdhane/)
+* **Email :** benromdhanerihem7@gmail.com
 
 ---
 *© 2025 Smart-QC Platform. Sous licence MIT.*
