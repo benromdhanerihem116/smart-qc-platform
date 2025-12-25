@@ -133,7 +133,7 @@ Tests réalisés sur un dataset de validation de 500 images industrielles.
 ##  Guide d'Installation (Local)
 
 Le projet est modulaire. Veuillez démarrer les services dans l'ordre suivant :
-
+Le jeu de données (casting_data) est inclus directement dans le dossier ai-service-python. Vous n'avez pas besoin de le télécharger manuellement depuis Kaggle (https://www.kaggle.com/datasets/ravirajsinh45/real-life-industrial-dataset-of-casting-product).
 ### 1. Moteur IA (Python)
 ```bash
 cd ai-service-python
