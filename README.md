@@ -114,7 +114,7 @@ x = base_model.output
 x = GlobalAveragePooling2D()(x)
 x = Dense(128, activation='relu')(x)  # Couche dense intermédiaire
 predictions = Dense(1, activation='sigmoid')(x) # Sortie Binaire (OK/NOK)
-
+```
 ---
 
 ##  Performance & Résultats
@@ -145,12 +145,14 @@ Le projet est modulaire. Veuillez démarrer les services dans l'ordre suivant :
 cd ai-service-python
 pip install -r requirements.txt
 python app.py
+```
 #  Server running on port 5000
 
 ### 2. Backend (Java/Spring)
 ```bash
 cd backend-spring
 mvn spring-boot:run
+```
 #  Tomcat started on port 8080
 
 ### 3. Démarrer l'Interface (React)
@@ -160,6 +162,7 @@ Port `3000`.
 cd frontend-react
 npm install
 npm start
+```
 #  Client accessible at http://localhost:3000
 
 ---
