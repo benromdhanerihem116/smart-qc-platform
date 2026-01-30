@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # 1. Base de données
+  postgres-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: smart_qc_db
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d smart_qc_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 2. Service IA (Python)
+  ai-service:
+    build: ./ai-service-python      # Chemin correct vers votre dossier
+    container_name: smart-qc-platform-ai-service-1 # Nom explicite pour faciliter les commandes
+    volumes:
+      - ./ai-service-python:/app    # Lie le dossier Windows au conteneur
+    ports:
+      - "5000:5000"
+
+  # 3. Backend (Spring Boot)
+  backend-service:
+    build: ./backend-spring
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/smart_qc_db
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: password123
+      AI_SERVICE_URL: http://ai-service:5000/ai-predict
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+      ai-service:
+        condition: service_started
+
+  # 4. Frontend (React)
+  frontend-ui:
+    build: ./frontend-react
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend-service

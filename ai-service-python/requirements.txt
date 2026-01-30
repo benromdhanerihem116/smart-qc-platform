@@ -1,0 +1,11 @@
+Flask
+Flask-Cors
+tensorflow==2.15.0
+numpy<2.0.0
+opencv-python-headless
+Pillow
+h5py
+werkzeug
+tf_keras
+scipy
+
